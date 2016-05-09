@@ -1,9 +1,9 @@
-package net.estinet.ClioteSky.commands;
+package net.estinet.au5c.commands;
 
 import java.util.List;
 
-import net.estinet.ClioteSky.ClioteSky;
-import net.estinet.ClioteSky.Command;
+import net.estinet.au5c.Command;
+import net.estinet.au5c.au5c;
 
 public class Key extends Command{
 	public Key(){
@@ -12,7 +12,7 @@ public class Key extends Command{
 	}
 	@Override
 	public void run(List<String> args){
-		System.out.println("Public Key: \n\n" + ClioteSky.getPublicKey());
-		System.out.println("\n\nPrivate Key: \n\n" + ClioteSky.getPrivateKey());
+		System.out.println("Public Key: \n\n" + au5c.getPublicKey());
+		System.out.println("\n\nPrivate Key: \n\n" + au5c.getPrivateKey());
 	}
 }

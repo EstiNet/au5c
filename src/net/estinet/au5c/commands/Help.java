@@ -1,9 +1,9 @@
-package net.estinet.ClioteSky.commands;
+package net.estinet.au5c.commands;
 
 import java.util.List;
 
-import net.estinet.ClioteSky.ClioteSky;
-import net.estinet.ClioteSky.Command;
+import net.estinet.au5c.Command;
+import net.estinet.au5c.au5c;
 
 public class Help extends Command{
 	public Help(){
@@ -13,7 +13,7 @@ public class Help extends Command{
 	@Override
 	public void run(List<String> args){
 		System.out.println("-----<Help>-----");
-		for(Command command : ClioteSky.commands){
+		for(Command command : au5c.commands){
 			System.out.println(command.getName() + " : " + command.getDescription());
 		}
 	}

@@ -1,14 +1,14 @@
-package net.estinet.ClioteSky.commands;
+package net.estinet.au5c.commands;
 
 import java.util.List;
 
-import net.estinet.ClioteSky.Command;
-import net.estinet.ClioteSky.Disable;
+import net.estinet.au5c.Command;
+import net.estinet.au5c.Disable;
 
 public class Stop extends Command{
 	public Stop(){
 		super.setName("Stop");
-		super.setDescription("Stops this instance of ClioteSky.");
+		super.setDescription("Stops this instance of au5c.");
 	}
 	@Override
 	public void run(List<String> args){

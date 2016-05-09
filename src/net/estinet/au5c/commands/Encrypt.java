@@ -1,10 +1,10 @@
-package net.estinet.ClioteSky.commands;
+package net.estinet.au5c.commands;
 
 import java.util.List;
 
-import net.estinet.ClioteSky.ClioteSky;
-import net.estinet.ClioteSky.Command;
-import net.estinet.ClioteSky.EncryptionUtil;
+import net.estinet.au5c.EncryptionUtil;
+import net.estinet.au5c.au5c;
+import net.estinet.au5c.Command;
 
 public class Encrypt extends Command{
 	public Encrypt(){
@@ -17,7 +17,7 @@ public class Encrypt extends Command{
 		for(int i = 1; i < args.size(); i++){
 			query += args.get(i) + " ";
 		}
-		    final byte[] cipherText = EncryptionUtil.encrypt(query, ClioteSky.publickey);
+		    final byte[] cipherText = EncryptionUtil.encrypt(query, au5c.publickey);
 			System.out.println(query);
 			System.out.println(new String(cipherText)); 
 	}

@@ -15,7 +15,7 @@ public class CommandSystem {
 			argss.add(str);
 		}
 		boolean lel = true;
-		for(Command command : ClioteSky.commands){
+		for(Command command : au5c.commands){
 			if(command.getName().equalsIgnoreCase(args[0])){
 				lel = false;
 				Thread thr = new Thread(new Runnable(){

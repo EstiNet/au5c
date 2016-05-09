@@ -1,10 +1,9 @@
-package net.estinet.ClioteSky.configuration;
+package net.estinet.au5c.configuration;
 
 import java.io.File;
 import java.io.IOException;
 
-import net.estinet.ClioteSky.ClioteSky;
-import net.estinet.ClioteSky.EncryptionUtil;
+import net.estinet.au5c.au5c;
 
 public class Config {
 	File f = new File("./Data");
@@ -20,24 +19,12 @@ public class Config {
 		 */
 		
 		if(!f.isDirectory()){
-			ClioteSky.println("Creating directory ./Data");
+			au5c.println("Creating directory ./Data");
 			f.mkdir();
-		}
-		if(!rsa.isDirectory()){
-			ClioteSky.println("Creating directory ./RSA");
-			rsa.mkdir();
-		}
-		if(!connections.isDirectory()){
-			ClioteSky.println("Creating directory ./Cliotes");
-			connections.mkdir();
-		}
-		if(!defaultcon.isDirectory()){
-			ClioteSky.println("Creating directory ./Cliotes/Default");
-			defaultcon.mkdir();
 		}
 		if(!file.exists()){
 			try {
-				ClioteSky.println("Creating file ./Data/config.properties");
+				au5c.println("Creating file ./Data/config.properties");
 				file.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -45,7 +32,7 @@ public class Config {
 		}
 		if(!rsapub.exists()){
 			try {
-				ClioteSky.println("Creating file ./RSA/public.key");
+				au5c.println("Creating file ./RSA/public.key");
 				rsapub.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -53,25 +40,20 @@ public class Config {
 		}
 		if(!rsapri.exists()){
 			try {
-				ClioteSky.println("Creating file ./RSA/private.key");
+				au5c.println("Creating file ./RSA/private.key");
 				rsapri.createNewFile();
-				EncryptionUtil.generateKey();
+				net.estinet.au5c.EncryptionUtil.generateKey();
 				//Assume that if they don't have the public key they don't have the private key :P
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		PropertiesUtil pu = new PropertiesUtil();
-		pu.createFile(file);
 		
 	}
 	public void loadConfig(){
 		/*
 		 * Load configuration (config.properties)
 		 */
-		
-		PropertiesUtil pu = new PropertiesUtil();
-		pu.loadFile(file);
 		
 	}
 }
