@@ -90,6 +90,6 @@ final class Enable {
 			}
 		});
 		thr.start();
-		System.out.println("Welcome to ClioteSky.");
+		System.out.println("Welcome to au5c.");
 	}
 }

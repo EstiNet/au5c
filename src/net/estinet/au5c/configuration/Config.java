@@ -8,8 +8,6 @@ import net.estinet.au5c.au5c;
 public class Config {
 	File f = new File("./Data");
 	File file = new File("./Data/config.properties");
-	File connections = new File("./Cliotes");
-	File defaultcon = new File("./Cliotes/Default");
 	File rsa = new File("./RSA");
 	File rsapub = new File("./RSA/public.key");
 	File rsapri = new File("./RSA/private.key");
@@ -21,6 +19,10 @@ public class Config {
 		if(!f.isDirectory()){
 			au5c.println("Creating directory ./Data");
 			f.mkdir();
+		}
+		if(!rsa.isDirectory()){
+			au5c.println("Creating directory ./RSA");
+			rsa.mkdir();
 		}
 		if(!file.exists()){
 			try {
