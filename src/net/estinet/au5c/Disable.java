@@ -1,8 +1,8 @@
-package net.estinet.ClioteSky;
+package net.estinet.au5c;
 
 public class Disable {
 	public void stop(){
-		ClioteSky.println("Stopping ClioteSky version " + ClioteSky.version + "...");
+		au5c.println("Stopping ClioteSky version " + au5c.version + "...");
 		System.exit(0);
 	}
 }
