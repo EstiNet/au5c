@@ -63,7 +63,7 @@ public class Config {
 			input = new FileInputStream(file.getPath());
 			prop.load(input);
 			input.close();
-			output = new FileOutputStream(f.getPath());
+			output = new FileOutputStream(file.getPath());
 			if(!(prop.containsKey("ClioteSky.Address"))){
 				prop.setProperty("ClioteSky.Address", "localhost");
 			}

@@ -16,6 +16,8 @@ public class InputError extends Packet{
 		switch(args.get(0)){
 		case "201":
 			ClioteSky.printError("Name not known when logging in! Are you sure you configured the config correctly?");
+			OutputCreate oc = new OutputCreate();
+			oc.run(null);
 			break;
 		case "300":
 			ClioteSky.printError("Category not known when creating Cliote! Are you sure you created the category on the server yet?");
@@ -25,12 +27,13 @@ public class InputError extends Packet{
 			break;
 		case "400":
 			ClioteSky.printError("Cliote already logged in! Are you sure there isn't already another instance of this server?");
+			break;
 		case "900":
 			ClioteSky.printError("Password incorrect when logging in! Are you sure you configured the config correctly?");
 			break;
 		case "901":
-			OutputCreate oc = new OutputCreate();
-			oc.run(null);
+			OutputCreate ocs = new OutputCreate();
+			ocs.run(null);
 			break;
 		default:
 			break;

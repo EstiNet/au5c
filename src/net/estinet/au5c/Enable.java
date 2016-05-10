@@ -7,6 +7,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 
 import net.estinet.au5c.ClioteSky.ClioteInit;
+import net.estinet.au5c.ClioteSky.Network.Protocol.Output.OutputAlive;
 import net.estinet.au5c.audio.MakeSound;
 import net.estinet.au5c.commands.Encrypt;
 import net.estinet.au5c.commands.Help;
@@ -20,25 +21,25 @@ final class Enable {
 		 * ClioteSky Startup Process.
 		 */
 		System.out.println("Starting au5c version " + au5c.version + "...");
-		
+
 		MakeSound ms = new MakeSound();
 		ms.play();
-		
+
 		/*
 		 * Load Configurations
 		 */
-		
+
 		au5c.println("Loading configurations...");
 		Config c = new Config();
 		c.setConfig();
 		c.loadConfig();
-		
+
 		/*
 		 * Sets up RSA encryption variables
 		 */
-		
+
 		ObjectInputStream inputStream = null;
-	    try {
+		try {
 			inputStream = new ObjectInputStream(new FileInputStream(EncryptionUtil.PUBLIC_KEY_FILE));
 			final PublicKey publicKey = (PublicKey) inputStream.readObject();
 			au5c.publickey = publicKey;
@@ -47,7 +48,7 @@ final class Enable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	    try {
+		try {
 			inputStream = new ObjectInputStream(new FileInputStream(EncryptionUtil.PRIVATE_KEY_FILE));
 			final PrivateKey privateKey = (PrivateKey) inputStream.readObject();
 			au5c.privatekey = privateKey;
@@ -58,33 +59,34 @@ final class Enable {
 		 * Startup Listener 
 		 */
 		Thread thr1 = new Thread(new Runnable(){
-		public void run(){
-		au5c.println("Opening socket listeners...");
-		//OPEN SOCKET HERE
-		ClioteInit ccu = new ClioteInit();
-		ccu.enable();
-		}
+			public void run(){
+				au5c.println("Opening socket listeners...");
+				//OPEN SOCKET HERE
+				ClioteInit ccu = new ClioteInit();
+				ccu.enable();
+			}
 		});
 		thr1.start();
-		
+
 		/*
 		 * Load Commands 
 		 */
-		
+
 		au5c.println("Loading command objects...");
 		au5c.commands.add(new Help());
 		au5c.commands.add(new Stop());
 		au5c.commands.add(new Key());
 		au5c.commands.add(new Encrypt());
+		au5c.commands.add(new Send());
 		
 		/*
 		 * Start CommandSystem
 		 */
-		
+
 		au5c.println("Starting CommandSystem...");
-		
+
 		au5c.state = State.COMMAND;
-		
+
 		CommandSystem cs = new CommandSystem();
 		Thread thr = new Thread(new Runnable(){
 			public void run(){
@@ -93,5 +95,21 @@ final class Enable {
 		});
 		thr.start();
 		System.out.println("Welcome to au5c.");
+		Thread thr2 = new Thread(new Runnable(){
+			public void run(){
+				while(true){
+					OutputAlive oa = new OutputAlive();
+					oa.run(null);
+					try{
+						Thread.sleep(5000);
+					}
+					catch(Exception e){
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+				);
+		thr2.start();
 	}
 }
