@@ -12,13 +12,14 @@ import net.estinet.au5c.audio.MakeSound;
 import net.estinet.au5c.commands.Encrypt;
 import net.estinet.au5c.commands.Help;
 import net.estinet.au5c.commands.Key;
+import net.estinet.au5c.commands.Send;
 import net.estinet.au5c.commands.Stop;
 import net.estinet.au5c.configuration.Config;
 
 final class Enable {
 	protected void enable(){
 		/*
-		 * ClioteSky Startup Process.
+		 * au5c Startup Process.
 		 */
 		System.out.println("Starting au5c version " + au5c.version + "...");
 
@@ -61,7 +62,6 @@ final class Enable {
 		Thread thr1 = new Thread(new Runnable(){
 			public void run(){
 				au5c.println("Opening socket listeners...");
-				//OPEN SOCKET HERE
 				ClioteInit ccu = new ClioteInit();
 				ccu.enable();
 			}

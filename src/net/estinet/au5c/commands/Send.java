@@ -13,6 +13,7 @@ public class Send extends Command{
 	}
 	@Override
 	public void run(List<String> args){
+		args.remove(0);
 		String add = "";
 		for(String str : args){
 			add += str + " ";
