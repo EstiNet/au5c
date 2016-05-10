@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.ClioteSky.Network.Protocol;
+package net.estinet.au5c.ClioteSky.Network.Protocol;
 
 import java.util.List;
 

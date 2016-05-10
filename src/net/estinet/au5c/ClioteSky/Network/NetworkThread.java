@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.ClioteSky.Network;
+package net.estinet.au5c.ClioteSky.Network;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -7,12 +7,10 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.SocketException;
 
-import org.bukkit.Bukkit;
-
-import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputHello;
+import net.estinet.au5c.Debug;
+import net.estinet.au5c.ClioteSky.ClioteConfigUtil;
+import net.estinet.au5c.ClioteSky.ClioteSky;
+import net.estinet.au5c.ClioteSky.Network.Protocol.Output.OutputHello;
 
 public class NetworkThread {
 	public static Socket clientSocket = null;
@@ -81,11 +79,17 @@ public class NetworkThread {
 						outToServer.writeBytes(message + "\n");
 					outToServer.flush();
 					ClioteSky.setSyncedOutput(true);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			        	public void run(){
+					Thread thr = new Thread(new Runnable(){
+						public void run(){
+							try {
+								Thread.sleep(750);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
 			        		ClioteSky.setSyncedOutput(false);
 			        	}
-			        }, 15L);
+					});
+					thr.start();
 					}
 					catch(NullPointerException e){
 						ClioteConfigUtil ccu = new ClioteConfigUtil();

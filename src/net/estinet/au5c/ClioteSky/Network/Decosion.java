@@ -1,10 +1,10 @@
-package net.estinet.gFeatures.ClioteSky.Network;
+package net.estinet.au5c.ClioteSky.Network;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
+import net.estinet.au5c.ClioteSky.ClioteSky;
+import net.estinet.au5c.ClioteSky.Network.Protocol.Packet;
 
 public class Decosion {
 	public void decode(String message){

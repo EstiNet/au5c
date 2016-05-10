@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+import net.estinet.au5c.ClioteSky.ClioteInit;
 import net.estinet.au5c.audio.MakeSound;
 import net.estinet.au5c.commands.Encrypt;
 import net.estinet.au5c.commands.Help;
@@ -60,6 +61,8 @@ final class Enable {
 		public void run(){
 		au5c.println("Opening socket listeners...");
 		//OPEN SOCKET HERE
+		ClioteInit ccu = new ClioteInit();
+		ccu.enable();
 		}
 		});
 		thr1.start();
