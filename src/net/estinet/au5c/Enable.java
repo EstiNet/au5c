@@ -78,6 +78,7 @@ final class Enable {
 		au5c.commands.add(new Key());
 		au5c.commands.add(new Encrypt());
 		au5c.commands.add(new Send());
+		au5c.commands.add(new net.estinet.au5c.commands.Debug());
 		
 		/*
 		 * Start CommandSystem

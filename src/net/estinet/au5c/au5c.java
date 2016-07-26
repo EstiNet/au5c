@@ -9,6 +9,7 @@ public class au5c {
 	public static String version = "1.0.0b";
 	public static State state = State.ENABLING;
 	public static boolean exit = true;
+	public static boolean debug = false;
 	
 	public static PublicKey publickey = null;
 	public static PrivateKey privatekey = null;
